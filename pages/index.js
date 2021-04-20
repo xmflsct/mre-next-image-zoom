@@ -7,9 +7,14 @@ import { Controlled } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
 export default function Home () {
-  const [isZoomed, setIsZoomed] = useState(false)
-  const onZoomChange = useCallback(shouldZoom => {
-    setIsZoomed(shouldZoom)
+  const [isZoomed1, setIsZoomed1] = useState(false)
+  const onZoomChange1 = useCallback(shouldZoom => {
+    setIsZoomed1(shouldZoom)
+  }, [])
+
+  const [isZoomed2, setIsZoomed2] = useState(false)
+  const onZoomChange2 = useCallback(shouldZoom => {
+    setIsZoomed2(shouldZoom)
   }, [])
 
   return (
@@ -30,8 +35,8 @@ export default function Home () {
         </p>
 
         <div className={styles.grid}>
-          <div className={styles.card} onClick={() => setIsZoomed(true)}>
-            <Controlled isZoomed={isZoomed} onZoomChange={onZoomChange}>
+          <div className={styles.card} onClick={() => setIsZoomed1(true)}>
+            <Controlled isZoomed={isZoomed1} onZoomChange={onZoomChange1}>
               <Image
                 src='https://images.ctfassets.net/hb7jdg1fwzzk/IlK22NNIh778evBgxj7Ao/3b90eba7bb57cd11159a6a3f66ca722f/JK16-209-1_Cylinder_vase_M__h.16X12X9cm__stoneware__handpainted__TerraDelft.JPG?fm=jpg&fl=progressive&fit=fill&q=85&w=1080&h=1080'
                 layout='responsive'
@@ -50,13 +55,15 @@ export default function Home () {
             />
           </div>
 
-          <a
-            href='https://github.com/vercel/next.js/tree/master/examples'
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <div className={styles.card} onClick={() => setIsZoomed2(true)}>
+            <Controlled isZoomed={isZoomed2} onZoomChange={onZoomChange2}>
+              <Image
+                src='https://images.ctfassets.net/hb7jdg1fwzzk/IlK22NNIh778evBgxj7Ao/3b90eba7bb57cd11159a6a3f66ca722f/JK16-209-1_Cylinder_vase_M__h.16X12X9cm__stoneware__handpainted__TerraDelft.JPG?fm=jpg&fl=progressive&fit=fill&q=85&w=1080&h=1080'
+                width={270}
+                height={270}
+              />
+            </Controlled>
+          </div>
 
           <a
             href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
